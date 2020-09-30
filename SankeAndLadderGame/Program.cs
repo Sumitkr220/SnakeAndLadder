@@ -13,6 +13,7 @@ namespace SankeAndLadderGame
 		static void Main(String[] args)
 		{
 			int currPosition = INITIAL_POSITION;
+			int moves = 0;
 			Console.WriteLine("Welcome to Snake Ladder Game!!!");
 			Console.WriteLine("Player is at the starting position");
 			while (currPosition != WINNING_POSITION)
@@ -41,9 +42,10 @@ namespace SankeAndLadderGame
 						currPosition = INITIAL_POSITION;
 					}
 				}
+				moves++;
 				Console.WriteLine("Player is at position : " + currPosition);
 			}
-			Console.WriteLine("Player reaches the winning position");
+			Console.WriteLine("Player reaches exact winning position in : " + moves + " moves");
 		}
 	}
 }
