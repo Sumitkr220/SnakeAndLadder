@@ -15,7 +15,7 @@ namespace SankeAndLadderGame
 			int currPosition = INITIAL_POSITION;
 			Console.WriteLine("Welcome to Snake Ladder Game!!!");
 			Console.WriteLine("Player is at the starting position");
-			while (currPosition < WINNING_POSITION)
+			while (currPosition != WINNING_POSITION)
 			{
 				Random random = new Random();
 				int diceValue = random.Next(1, 7);
@@ -28,6 +28,10 @@ namespace SankeAndLadderGame
 				else if (actionTaken == LADDER)
 				{
 					currPosition += diceValue;
+					if (currPosition > WINNING_POSITION)
+					{
+						currPosition -= diceValue;
+					}
 				}
 				else
 				{
