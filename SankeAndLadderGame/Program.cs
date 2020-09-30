@@ -10,6 +10,9 @@ namespace SankeAndLadderGame
         {
             Console.WriteLine("Welcome to Snake Ladder Game!!!");
             Console.WriteLine("Player is at the starting position");
+            Random random = new Random();
+            int diceValue = random.Next(1, 7);
+            Console.WriteLine("Player rolled : " + diceValue);
         }
     }
 }
