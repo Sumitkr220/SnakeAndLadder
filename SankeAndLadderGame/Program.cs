@@ -4,15 +4,37 @@ namespace SankeAndLadderGame
 {
     class Program
     {
-        public const int NO_OF_PLAYERS = 1;
-        public const int INITIAL_POSITION = 0;
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Welcome to Snake Ladder Game!!!");
-            Console.WriteLine("Player is at the starting position");
-            Random random = new Random();
-            int diceValue = random.Next(1, 7);
-            Console.WriteLine("Player rolled : " + diceValue);
-        }
-    }
+		public const int NO_OF_PLAYERS = 1;
+		public const int INITIAL_POSITION = 0;
+		public const int NO_PLAY = 0;
+		public const int LADDER = 1;
+		public const int SNAKE = 2;
+		static void Main(String[] args)
+		{
+			int currPosition = INITIAL_POSITION;
+			Console.WriteLine("Welcome to Snake Ladder Game!!!");
+			Console.WriteLine("Player is at the starting position");
+			Random random = new Random();
+			int diceValue = random.Next(1, 7);
+			Console.WriteLine("Player rolled : " + diceValue);
+			int actionTaken = random.Next(0, 3);
+			if (actionTaken == NO_PLAY)
+			{
+				Console.WriteLine("No action taken");
+			}
+			else if (actionTaken == LADDER)
+			{
+				currPosition += diceValue;
+			}
+			else
+			{
+				currPosition -= diceValue;
+				if (currPosition < INITIAL_POSITION)
+				{
+					currPosition = INITIAL_POSITION;
+				}
+			}
+			Console.WriteLine("Player is at position : " + currPosition);
+		}
+	}
 }
